@@ -1,0 +1,52 @@
+/* Add this CSS to your stylesheet */
+
+.user-profile-table {
+    width: 100%;
+    border: 2px solid;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 10px; 
+    overflow: hidden; 
+}
+  .user-profile-table tbody tr:nth-child(even) {
+    background-color: #5cb1ff;
+  }
+  
+  .user-profile-table th, .user-profile-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0; /* Remove rounded corners from cells */
+  }
+  
+  .user-profile-table th {
+    background-color: #007bff;
+    color: white;
+    border-radius: 0; /* Remove rounded corners from header cells */
+  }
+  
+  .user-profile-table th:first-child, .user-profile-table td:first-child {
+    font-weight: bold;
+    width: 40%;
+  }
+  
+  .user-profile-table td {
+    width: 60%;
+  }
+  
+  .user-profile-table td strong {
+    font-weight: normal;
+  }
+  
+  .user-profile-table h2 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  /* Style for the Portfolio section */
+  .user-profile-table p {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  

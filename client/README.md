@@ -1,0 +1,2 @@
+# Golden Reserve Hub website
+
