@@ -6,8 +6,7 @@ router.post("/subscribe", async (req, res) => {
     const { email } = req.body;
 
     const transporter = nodemailer.createTransport({
-      service: "Gmail",
-      host: "smtp.gmail.com",
+      host: 'mail.privateemail.com',
       port: 465,
       secure: true,
       auth: {

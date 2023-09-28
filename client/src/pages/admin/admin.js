@@ -62,7 +62,13 @@ import { useNavigate, Link } from "react-router-dom";
         </Container>
 
         <Link className="el-button outline" to={"/new-depositor"}>
-              Add a Depositor           </Link>
+              Add a Depositor       
+        </Link>
+
+        <Link className="el-button outline" to={"/price-calculator"}>
+              Gold Price Calculator          
+        </Link>
+
       </main>
     );
   };

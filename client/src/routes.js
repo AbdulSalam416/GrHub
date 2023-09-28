@@ -11,6 +11,8 @@ import { AdminLogin } from "./pages/auth";
 import { Admin } from "./pages/admin";
 import Logout from "./components/Logout/Logout";
 import NewDepositor from './pages/admin/new-depositor'
+import Calculator from './pages/admin/calculator'
+
 
 
 const routes = [
@@ -40,7 +42,7 @@ const routes = [
   {path:"logout", element:<Logout/>},
 
   {path:"new-depositor", element:<NewDepositor/>},
-
+  {path:"price-calculator", element:<Calculator/>},
 
 
 ];
