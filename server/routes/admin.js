@@ -5,6 +5,25 @@ const verify = require("../verifyToken");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
+
+
+async function generateUniqueVaultNumber() {
+  const latestDepositor = await Depositor.findOne({}, {}, { sort: { 'createdAt': -1 } });
+  if (latestDepositor) {
+    // Extract the numeric part of the vault number and increment it
+    const latestVaultNumber = parseInt(latestDepositor.vaultNumber.slice(3), 10);
+    const newVaultNumber = `grh${(latestVaultNumber + 1).toString().padStart(4, '0')}`;
+    return newVaultNumber;
+  } else {
+    // If no depositors exist yet, start with 'grh0001'
+    return 'grh0001';
+  }
+}
+
+
+
+
+
 router.post("/login", async (req, res) => {
   try {
     const admin = await Admin.findOne({ username: req.body.username });
@@ -58,7 +77,6 @@ router.post("/new-admin", async (req, res) => {
 router.post("/add-depositor", async (req, res) => {
   try {
     const {
-      vaultNumber,
       username,
       password,
       fullName,
@@ -77,6 +95,9 @@ router.post("/add-depositor", async (req, res) => {
       demurrageCharge,
       nextOfKin,
     } = req.body;
+
+    const vaultNumber = await generateUniqueVaultNumber();
+
 
     const newDepositor = new Depositor({
       vaultNumber,

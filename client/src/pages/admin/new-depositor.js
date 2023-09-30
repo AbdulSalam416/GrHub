@@ -21,7 +21,6 @@ const NewDepositor = () => {
     const isLoggedIn = window.localStorage.getItem("isLoggedIn");
     const isAdmin = window.localStorage.getItem("isAdmin");
     event.preventDefault();
-    const vaultNumber = event.target.vaultNumber.value;
     const username = event.target.username.value;
     const password = event.target.password.value;
     const fullName = event.target.fullName.value;
@@ -43,7 +42,6 @@ const NewDepositor = () => {
     if (isLoggedIn && isAdmin) {
       axios
         .post("/api/adminRoute/add-depositor", {
-          vaultNumber: vaultNumber,
           username: username,
           password: password,
           fullName: fullName,
@@ -65,7 +63,7 @@ const NewDepositor = () => {
         .then(function (response) {
           console.log(response);
           alert("SUCCESS");
-          window.localStorage.removeItem('allUsersData')
+          window.localStorage.removeItem("allUsersData");
           navigate("/admin-panel");
         })
         .catch(function (error) {
@@ -84,12 +82,6 @@ const NewDepositor = () => {
     <main className="p-auth-main">
       <form method="POST" action="/" onSubmit={addNew} className="form">
         <h3 className="el-title--h1">New Depositor</h3>
-
-        <Input
-          type={"text"}
-          name={"vaultNumber"}
-          placeholder={"Vault Number"}
-        />
 
         <Input type={"text"} name={"username"} placeholder={"username"} />
         <Input type={"password"} name={"password"} placeholder={"password "} />
