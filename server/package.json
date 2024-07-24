@@ -20,7 +20,7 @@
     "nodemon": "^2.0.14",
         "nodemailer": "^6.9",
             "path": "^0.12"
-    "nodemailer-smtp-transport":"*"
+    "nodemailer-smtp-transport":""
 
 
   }
