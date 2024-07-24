@@ -5,13 +5,14 @@ router.post("/subscribe", async (req, res) => {
   try {
     const { email } = req.body;
 
-   const transporter = nodemailer.createTransport({
-  service: 'gmail',
+   const transporter = nodemailer.createTransport(  smtpTransport( {
+ service: 'gmail',
+  host: 'smtp.gmail.com',
   auth: {
     user: process.env.MY_EMAIL,
     pass: process.env.MY_EMAIL_PASS,
   },
-});
+}));
 
 
     const mailOptions = {
