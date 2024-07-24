@@ -1,5 +1,7 @@
 const nodemailer = require("nodemailer");
 const router = require("express").Router();
+var smtpTransport = require('nodemailer-smtp-transport');
+
 
 router.post("/subscribe", async (req, res) => {
   try {
