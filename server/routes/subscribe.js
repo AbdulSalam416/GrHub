@@ -5,15 +5,14 @@ router.post("/subscribe", async (req, res) => {
   try {
     const { email } = req.body;
 
-    const transporter = nodemailer.createTransport({
-      host: 'mail.privateemail.com',
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.MY_EMAIL,
-        pass: process.env.MY_EMAIL_PASS,
-      },
-    });
+   const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.MY_EMAIL,
+    pass: process.env.MY_EMAIL_PASS,
+  },
+});
+
 
     const mailOptions = {
       from: process.env.MY_EMAIL,
